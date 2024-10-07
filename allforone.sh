@@ -1,7 +1,7 @@
 #!/bin/bash
 
-curl -s https://raw.githubusercontent.com/Huyme99/logo/refs/heads/main/logo.sh | bash
-sleep 3
+echo
+curl -s https://raw.githubusercontent.com/Huyme99/logo/refs/heads/main/logo.sh
 
 show() {
     echo -e "\033[1;34m$1\033[0m"
