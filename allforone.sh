@@ -40,7 +40,7 @@ chooseOption() {
     case $choice in
         1)
             echo "Đang chạy file setup.sh từ link..."
-            curl -s https://raw.githubusercontent.com/Huyme99/codeto10k/refs/heads/main/setup.sh | bash
+            curl -s https://raw.githubusercontent.com/Huyme99/codeto10k/refs/heads/main/setup1.sh | bash
             ;;
         2)
             echo "Hủy bỏ."
