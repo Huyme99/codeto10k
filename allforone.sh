@@ -20,8 +20,8 @@ wget -O - https://raw.githubusercontent.com/Huyme99/Installation/refs/heads/main
 echo
 
 # Tạo hai tập tin proxy.txt và query.txt
-echo "Nội dung cho proxy.txt" > proxy.txt
-echo "Nội dung cho query.txt" > query.txt
+echo "http://username:password@ip:port" > proxy.txt
+echo "query_id= hoặc user=" > query.txt
 
 
 # Hàm chỉnh sửa tập tin proxy.txt
@@ -34,24 +34,14 @@ edit_query() {
     nano query.txt  # Mở tập tin query.txt bằng trình soạn thảo nano
 }
 
-clear  # Xóa màn hình terminal
-
-# Hàm để chọn lựa chọn 1 hoặc 2
 chooseOption() {
-    read -p "Chọn 1 để chỉnh sửa proxy.txt hoặc chọn 2 để chỉnh sửa query.txt (1/2): " choice
-    case $choice in
-        1)
-            show "Chỉnh sửa proxy.txt..."
-            edit_proxy  # Gọi hàm chỉnh sửa proxy.txt
-            ;;
-        2)
-            show "Chỉnh sửa query.txt..."
-            edit_query  # Gọi hàm chỉnh sửa query.txt
-            ;;
-        *)
-            show "Lựa chọn không hợp lệ."
-            ;;
-    esac
+    show "Chỉnh sửa proxy.txt..."
+    edit_proxy  # Gọi hàm chỉnh sửa proxy.txt
+
+    show "Chỉnh sửa query.txt..."
+    edit_query  # Gọi hàm chỉnh sửa query.txt
+
+    echo "Bạn đã thêm thành công proxy và query"
 }
 
 # Thực thi chương trình
