@@ -13,6 +13,7 @@ show "Updating package list and installing Git..."
 echo
 sudo apt update
 sudo apt install -y git
+sudo apt-get install dialog
 echo
 show "Installing Node.js..."
 wget -O - https://raw.githubusercontent.com/Huyme99/Installation/refs/heads/main/node.sh | bash
