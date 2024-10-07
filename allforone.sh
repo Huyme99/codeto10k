@@ -18,9 +18,22 @@ show "Installing Node.js..."
 wget -O - https://raw.githubusercontent.com/Huyme99/Installation/refs/heads/main/node.sh | bash
 echo
 
-# Điều chỉnh để thực thi chương trình sau khi clear và thực hiện các lệnh trên
+# Hiển thị menu lựa chọn
 chooseOption() {
-    read -p "Chọn 1 để chạy file setup.sh hoặc chọn 2 để hủy bỏ (1/2): " choice
+    dialog --backtitle "Chọn hành động" \
+           --title "Menu" \
+           --clear \
+           --menu "Chọn 1 để chạy file setup.sh hoặc chọn 2 để hủy bỏ:" 15 50 2 \
+           1 "Chạy file setup.sh từ link" \
+           2 "Hủy bỏ" 2> /tmp/option.txt
+}
+
+# Thực thi chương trình
+run() {
+    chooseOption
+    choice=$(cat /tmp/option.txt)
+    rm /tmp/option.txt
+
     case $choice in
         1)
             echo "Đang chạy file setup.sh từ link..."
@@ -35,12 +48,4 @@ chooseOption() {
     esac
 }
 
-# Thực thi chương trình
-run() {
-    chooseOption
-}
-
 run
-
-
-
