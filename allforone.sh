@@ -13,7 +13,6 @@ show "Updating package list and installing Git..."
 echo
 sudo apt update
 sudo apt install -y git
-sudo apt-get install dialog
 echo
 show "Installing Node.js..."
 wget -O - https://raw.githubusercontent.com/Huyme99/Installation/refs/heads/main/node.sh | bash
@@ -29,12 +28,8 @@ chooseOption() {
            2 "Hủy bỏ" 2> /tmp/option.txt
 }
 
-# Thực thi chương trình
-run() {
-    chooseOption
-    choice=$(cat /tmp/option.txt)
-    rm /tmp/option.txt
-
+chooseOption() {
+    read -p "Chọn 1 để chạy file setup.sh hoặc chọn 2 để hủy bỏ (1/2): " choice
     case $choice in
         1)
             echo "Đang chạy file setup.sh từ link..."
@@ -47,6 +42,11 @@ run() {
             echo "Lựa chọn không hợp lệ."
             ;;
     esac
+}
+
+# Thực thi chương trình
+run() {
+    chooseOption
 }
 
 run
