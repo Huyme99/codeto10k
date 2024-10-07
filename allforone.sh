@@ -15,7 +15,7 @@ sudo apt update
 sudo apt install -y git
 echo
 show "Installing Node.js..."
-wget -0 - https://raw.githubusercontent.com/Huyme99/Installation/refs/heads/main/node.sh
+wget -O - https://raw.githubusercontent.com/Huyme99/Installation/refs/heads/main/node.sh
 echo
 
 # Điều chỉnh để thực thi chương trình sau khi clear và thực hiện các lệnh trên
