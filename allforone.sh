@@ -1,7 +1,5 @@
 #!/bin/bash
 
-clear  # Xóa màn hình terminal
-
 curl -s https://raw.githubusercontent.com/Huyme99/logo/refs/heads/main/logo.sh | bash
 sleep 3
 
@@ -18,16 +16,9 @@ show "Installing Node.js..."
 wget -O - https://raw.githubusercontent.com/Huyme99/Installation/refs/heads/main/node.sh | bash
 echo
 
-# Hiển thị menu lựa chọn
-chooseOption() {
-    dialog --backtitle "Chọn hành động" \
-           --title "Menu" \
-           --clear \
-           --menu "Chọn 1 để chạy file setup.sh hoặc chọn 2 để hủy bỏ:" 15 50 2 \
-           1 "Chạy file setup.sh từ link" \
-           2 "Hủy bỏ" 2> /tmp/option.txt
-}
+clear  # Xóa màn hình terminal
 
+# Định nghĩa hàm cho lựa chọn số 1 và số 2
 chooseOption() {
     read -p "Chọn 1 để chạy file setup.sh hoặc chọn 2 để hủy bỏ (1/2): " choice
     case $choice in
