@@ -109,6 +109,22 @@ const processQuery = async (query_id, proxy, isTodoTask) => {
         }
     };
 
+    const boost = async (authorization) => {
+        const BoostConfig = {
+           method: "post",
+           url: "https://api.gumart.click/api/boost",
+           headers: { ...config.headers, authorization },
+           httpsAgent: agent
+        };
+
+        try {
+          const response = await axios(BoostConfig);
+          console.log("Boost thành công!");
+        } catch (error) {
+          console.error("Không thể boost:", error);
+        }
+   };
+
     const getTask = async (authorization) => {
         const getTaskConfig = {
             method: 'get',
@@ -200,6 +216,8 @@ const processQuery = async (query_id, proxy, isTodoTask) => {
         }else{
             console.log("Earned amount <= 1000. Chỉ claim khi amount > 1000");
         }
+
+        await boost(authorization);
 
         if(isTodoTask){
             await getTask(authorization)
